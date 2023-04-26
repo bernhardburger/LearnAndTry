@@ -19,6 +19,11 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     # loging procedure
+    data = request.args
+    print("json: ")
+    for arg in data.values():
+        print(arg)
+
     if request.method == 'POST':
         try:
             login_result = authenticate(request.form['username'], request.form['password'])
